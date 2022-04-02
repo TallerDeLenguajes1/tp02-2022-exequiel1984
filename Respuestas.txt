@@ -1,0 +1,2 @@
+No se puede ver el archivo tp2_1_2.c porque se encuentra en la rama Opcion_2 y estamos en la rama main
+Al agregar el archivo Respuestas en el diagrama se visualizan 2 ramas una main y la otra Opcion_2
