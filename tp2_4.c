@@ -11,6 +11,10 @@ struct compu {
 
 void mostrarListaPC(struct compu *);
 
+void PcVieja(struct compu *);
+
+void PcRapida(struct compu *);
+
 int main(){
     char tipos[6][10]={"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
     struct compu equipos[5];    
@@ -27,6 +31,10 @@ int main(){
 
     mostrarListaPC(equipos);
     
+    PcVieja(equipos);
+
+    PcRapida(equipos);
+
     getchar();
     return 0;
 }
@@ -41,4 +49,57 @@ void mostrarListaPC(struct compu *equipos){
         printf("Cantidad de nucleos: %d\n", equipos[i].cantidad);
         printf("\n");
     }
+
+}
+
+void PcVieja(struct compu *equipos){
+    int masAntigua = 2018;
+    struct compu datosPcAntigua;
+
+    for (int i = 0; i < 5; i++)
+    {
+        if (masAntigua > equipos[i].anio)
+        {
+            datosPcAntigua.velocidad = equipos[i].velocidad;
+            datosPcAntigua.anio = equipos[i].anio;
+            datosPcAntigua.tipo_cpu = equipos[i].tipo_cpu;
+            datosPcAntigua.cantidad = equipos[i].cantidad;
+
+            masAntigua = equipos[i].anio;
+        }
+    }
+
+    printf("PC MAS ANTIGUA\n");
+    printf("Velocidad: %d GHz\n", datosPcAntigua.velocidad);
+    printf("Año: %d\n", datosPcAntigua.anio);
+    printf("Tipo de procesador: %s\n", datosPcAntigua.tipo_cpu);
+    printf("Cantidad de nucleos: %d\n", datosPcAntigua.cantidad);
+    printf("\n");
+    
+}
+
+void PcRapida(struct compu *equipos){
+    int mayorVelocidad = 0;
+    struct compu datosPcAntigua;
+
+    for (int i = 0; i < 5; i++)
+    {
+        if (mayorVelocidad > equipos[i].velocidad)
+        {
+            datosPcAntigua.velocidad = equipos[i].velocidad;
+            datosPcAntigua.anio = equipos[i].anio;
+            datosPcAntigua.tipo_cpu = equipos[i].tipo_cpu;
+            datosPcAntigua.cantidad = equipos[i].cantidad;
+
+            mayorVelocidad = equipos[i].velocidad;
+        }
+    }
+
+    printf("PC CON MAYOR VELOCIDAD\n");
+    printf("Velocidad: %d GHz\n", datosPcAntigua.velocidad);
+    printf("Año: %d\n", datosPcAntigua.anio);
+    printf("Tipo de procesador: %s\n", datosPcAntigua.tipo_cpu);
+    printf("Cantidad de nucleos: %d\n", datosPcAntigua.cantidad);
+    printf("\n");
+    
 }
